@@ -8,20 +8,31 @@
 #ifndef HERO_GUARD_TRANSFORM_H
 #define HERO_GUARD_TRANSFORM_H
 
-#include <fit/unpack.h>
+#include <hero/detail/algo.h>
+#include <hero/detail/view.h>
 #include <fit/pipable.h>
 #include <fit/by.h>
-#include <fit/function.h>
-#include <tick/requires.h>
 
-namespace hero {
+namespace hero { namespace detail {
 
-FIT_STATIC_FUNCTION(transform) = fit::pipable(
-    [](auto&& seq, auto projection, TICK_PARAM_REQUIRES(tick::trait<fit::is_unpackable>(seq)))
-    {
-        return fit::unpack(fit::by(projection, fit::pack))(seq);
-    }
-);
+struct transform_a
+{
+    template<class Filler, class Projection>
+    constexpr auto operator()(Filler&& f, Projection&& p) const FIT_RETURNS
+    (
+        fit::by(fit::forward<Projection>(p), fit::forward<Filler>(f))
+    )
+};
+
+}
+
+FIT_STATIC_FUNCTION(transform) = fit::pipable(detail::algo<detail::transform_a>());
+
+namespace view {
+
+FIT_STATIC_FUNCTION(transform) = fit::pipable(detail::make_view<detail::transform_a>());
+
+}
 
 }
 
