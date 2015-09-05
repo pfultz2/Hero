@@ -28,7 +28,7 @@ struct algo
     // template<class Sequence, class... Ts, TICK_REQUIRES(fit::is_unpackable<Sequence>())>
     // constexpr auto operator()(Sequence&& s, Ts&&... xs) const
     // {
-    //     return fit::unpack(A()(fill(s), fit::forward<Ts>(xs)...))(fit::forward<Sequence>(s));
+    //     return fit::reveal(fit::unpack(A()(fill(s), fit::forward<Ts>(xs)...)))(fit::forward<Sequence>(s));
     // }
 };
 

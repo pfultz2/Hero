@@ -51,6 +51,7 @@ include(CTest)
 
 include_directories(include)
 
+add_test_executable(filter)
 add_test_executable(for_each)
 add_test_executable(fold)
 add_test_executable(reverse_fold)
