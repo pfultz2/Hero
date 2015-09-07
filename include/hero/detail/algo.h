@@ -17,7 +17,6 @@ namespace hero { namespace detail {
 template<class A>
 struct algo
 {
-    // TODO: Check type requirements for sequence
     template<class Sequence, class... Ts, TICK_REQUIRES(fit::is_unpackable<Sequence>::value)>
     constexpr auto operator()(Sequence&& s, Ts&&... xs) const FIT_RETURNS
     (
@@ -34,6 +33,22 @@ struct algo
 
 template<class A>
 constexpr algo<A> make_algo(A)
+{
+    return {};
+}
+
+template<class A>
+struct algo_copy
+{
+    template<class Sequence, class... Ts, TICK_REQUIRES(fit::is_unpackable<Sequence>::value)>
+    constexpr auto operator()(Sequence s, Ts&&... xs) const FIT_RETURNS
+    (
+        fit::unpack(A()(fill(s), fit::forward<Ts>(xs)...))(fit::move(s))
+    )
+};
+
+template<class A>
+constexpr algo_copy<A> make_algo_copy(A)
 {
     return {};
 }

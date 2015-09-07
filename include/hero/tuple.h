@@ -74,7 +74,7 @@ struct tuple
 
 FIT_STATIC_FUNCTION(make_tuple) = fit::by(fit::decay, fit::construct<tuple>());
 
-FIT_STATIC_FUNCTION(as_tuple) = fit::unpack(fit::construct<tuple>());
+FIT_STATIC_FUNCTION(as_tuple) = fit::unpack(make_tuple);
 
 template<class... Ts>
 constexpr bool operator==(const tuple<Ts...>& x, const tuple<Ts...>& y)
