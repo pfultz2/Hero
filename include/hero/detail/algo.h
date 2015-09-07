@@ -18,7 +18,7 @@ template<class A>
 struct algo
 {
     // TODO: Check type requirements for sequence
-    template<class Sequence, class... Ts, TICK_REQUIRES(fit::is_unpackable<Sequence>())>
+    template<class Sequence, class... Ts, TICK_REQUIRES(fit::is_unpackable<Sequence>::value)>
     constexpr auto operator()(Sequence&& s, Ts&&... xs) const FIT_RETURNS
     (
         fit::unpack(A()(fill(s), fit::forward<Ts>(xs)...))(fit::forward<Sequence>(s))
@@ -41,8 +41,7 @@ constexpr algo<A> make_algo(A)
 template<class A>
 struct algo_action
 {
-    // TODO: Check type requirements for sequence
-    template<class Sequence, class... Ts, TICK_REQUIRES(fit::is_unpackable<Sequence>())>
+    template<class Sequence, class... Ts, TICK_REQUIRES(fit::is_unpackable<Sequence>::value)>
     constexpr auto operator()(Sequence&& s, Ts&&... xs) const FIT_RETURNS
     (
         fit::unpack(A()(fit::forward<Ts>(xs)...))(fit::forward<Sequence>(s))

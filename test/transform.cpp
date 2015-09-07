@@ -52,3 +52,17 @@ PROVE_CASE()
         (hero::transform(hero::make_tuple(1, 2), fit::_1 * fit::_1)) 
         == hero::make_tuple(1, 4));
 }
+
+PROVE_CASE()
+{
+    PROVE_STATIC_CHECK(
+        hero::as_tuple(hero::make_tuple(1, 2) | hero::view::transform(fit::_1 * fit::_1)) 
+        == hero::make_tuple(1, 4));
+}
+
+PROVE_CASE()
+{
+    PROVE_STATIC_CHECK(
+        hero::as_tuple(hero::view::transform(hero::make_tuple(1, 2), fit::_1 * fit::_1)) 
+        == hero::make_tuple(1, 4));
+}

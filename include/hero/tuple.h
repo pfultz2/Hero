@@ -39,6 +39,7 @@ struct tuple
 {
     typedef detail::closure<typename detail::gen_index_lookup<sizeof...(Ts)>::type, Ts...> base;
     FIT_INHERIT_CONSTRUCTOR(tuple, base)
+    // TODO: Add implict conversions
 
     template<class IntegralConstant>
     constexpr auto operator[](IntegralConstant) const FIT_RETURNS
@@ -72,6 +73,8 @@ struct tuple
 };
 
 FIT_STATIC_FUNCTION(make_tuple) = fit::by(fit::decay, fit::construct<tuple>());
+
+FIT_STATIC_FUNCTION(as_tuple) = fit::unpack(fit::construct<tuple>());
 
 template<class... Ts>
 constexpr bool operator==(const tuple<Ts...>& x, const tuple<Ts...>& y)

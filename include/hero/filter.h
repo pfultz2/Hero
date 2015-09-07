@@ -25,7 +25,6 @@ struct filter_projection
     predicate(T&&)
     {
         typedef decltype(std::declval<Predicate>()(std::declval<T>())) p;
-        static_assert(p() == std::is_integral<typename std::remove_reference<T>::type>(), "False");
         return {};
     }
     template<class T>
@@ -45,18 +44,11 @@ struct filter_a
     (
         fit::by(filter_projection<Predicate>(), fit::unpack(fit::forward<Filler>(f)))
     )
-
-    // template<class Filler, class Predicate>
-    // constexpr auto operator()(Filler&& f, const Predicate&) const
-    // {
-    //     return fit::by(filter_projection<Predicate>(), fit::unpack(fit::forward<Filler>(f)));
-    // }
 };
 
 }
 
-// FIT_STATIC_FUNCTION(filter) = fit::pipable(detail::algo_action<detail::filter_a>());
-FIT_STATIC_FUNCTION(filter) = detail::algo<detail::filter_a>();
+FIT_STATIC_FUNCTION(filter) = fit::pipable(detail::algo<detail::filter_a>());
 
 namespace view {
 
