@@ -11,6 +11,7 @@
 #include <hero/detail/unpack.h>
 // #include <fit/rotate.h>
 #include <fit/construct.h>
+#include <tick/requires.h>
 
 namespace hero { namespace detail {
 
@@ -43,7 +44,8 @@ struct view : A
 template<class A>
 struct make_view
 {
-    template<class Sequence, class... Ts, TICK_REQUIRES(fit::is_unpackable<Sequence>())>
+    template<class Sequence, class... Ts, 
+        TICK_REQUIRES(fit::is_unpackable<Sequence>::value && fit::is_callable<A, decltype(fit::always()), Ts...>::value)>
     constexpr auto operator()(Sequence&& s, Ts&&... xs) const FIT_RETURNS
     (
         fit::construct<view>()(
