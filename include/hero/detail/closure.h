@@ -61,13 +61,13 @@ struct closure<lookup<Keys...>, Ts...>
     constexpr static auto get_by_key(Self&& self) FIT_RETURNS
     (
         fit::alias_value<closure_tag<Key, Ts...>>(fit::forward<Self>(self))
-    )
+    );
 
     template<class Key, class T, class Self>
     constexpr static auto get_element(Self&& self) FIT_RETURNS
     (
         fit::alias_value<closure_tag<Key, Ts...>, T>(fit::forward<Self>(self))
-    )
+    );
 
     template<class Key, class T, class Self1, class Self2, class F>
     constexpr static auto unpack_zip_project(Self1&& s1, Self2&& s2, F f) FIT_RETURNS
@@ -76,13 +76,13 @@ struct closure<lookup<Keys...>, Ts...>
             fit::alias_value<closure_tag<Key, Ts...>, T>(fit::forward<Self1>(s1)), 
             fit::alias_value<closure_tag<Key, Ts...>, T>(fit::forward<Self2>(s2))
         )
-    )
+    );
 
     template<class Self1, class Self2, class F, class Projection>
     constexpr static auto unpack_zip(Self1&& s1, Self2&& s2, F f, Projection p) FIT_RETURNS
     (
         f(unpack_zip_project<Keys, Ts>(fit::forward<Self1>(s1), fit::forward<Self2>(s2), p)...)
-    )
+    );
 
     struct hero_unpack_sequence
     {

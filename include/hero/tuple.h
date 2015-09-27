@@ -16,6 +16,7 @@
 #include <fit/function.h>
 #include <fit/construct.h>
 #include <fit/decay.h>
+#include <hero/detail/ordered.h>
 #include <tick/integral_constant.h>
 
 namespace hero { namespace detail {
@@ -35,7 +36,7 @@ struct gen_index_lookup<0, S...>
 
 template<class... Ts>
 struct tuple
-: detail::closure<typename detail::gen_index_lookup<sizeof...(Ts)>::type, Ts...>
+: detail::closure<typename detail::gen_index_lookup<sizeof...(Ts)>::type, Ts...>, detail::ordered<tuple<Ts...>>
 {
     typedef detail::closure<typename detail::gen_index_lookup<sizeof...(Ts)>::type, Ts...> base;
     FIT_INHERIT_CONSTRUCTOR(tuple, base)
@@ -77,16 +78,16 @@ FIT_STATIC_FUNCTION(make_tuple) = fit::by(fit::decay, fit::construct<tuple>());
 FIT_STATIC_FUNCTION(as_tuple) = fit::unpack(make_tuple);
 
 template<class... Ts>
-constexpr bool operator==(const tuple<Ts...>& x, const tuple<Ts...>& y)
-{
-    return tuple<Ts...>::unpack_zip(x, y, fit::compress(fit::_ and fit::_), fit::_ == fit::_);
-}
+constexpr auto operator==(const tuple<Ts...>& x, const tuple<Ts...>& y) FIT_RETURNS
+(
+    tuple<Ts...>::unpack_zip(x, y, fit::compress(fit::_ and fit::_, true), fit::_ == fit::_)
+);
 
 template<class... Ts>
-constexpr bool operator!=(const tuple<Ts...>& x, const tuple<Ts...>& y)
-{
-    return !(x == y);
-}
+constexpr auto operator<(const tuple<Ts...>& x, const tuple<Ts...>& y) FIT_RETURNS
+(
+    tuple<Ts...>::unpack_zip(x, y, fit::compress(detail::lexical_compare_fold(), 0), detail::lexical_compare_each()) == -1
+);
 
 }
 

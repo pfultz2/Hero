@@ -6,6 +6,55 @@ PROVE_CASE()
     auto t1 = hero::make_tuple(1, 2, 3);
     auto t2 = hero::make_tuple(1, 2, 3);
     PROVE_CHECK(t1 == t2);
+    PROVE_CHECK(!(t1 < t2));
+    PROVE_CHECK(!(t1 > t2));
+    PROVE_CHECK(t1 <= t2);
+    PROVE_CHECK(t1 >= t2);
+}
+
+PROVE_CASE()
+{
+    PROVE_STATIC_CHECK(hero::make_tuple(1, 2, 3) == hero::make_tuple(1, 2, 3));
+    PROVE_STATIC_CHECK(!(hero::make_tuple(1, 2, 3) < hero::make_tuple(1, 2, 3)));
+    PROVE_STATIC_CHECK(!(hero::make_tuple(1, 2, 3) > hero::make_tuple(1, 2, 3)));
+    PROVE_STATIC_CHECK(hero::make_tuple(1, 2, 3) <= hero::make_tuple(1, 2, 3));
+    PROVE_STATIC_CHECK(hero::make_tuple(1, 2, 3) >= hero::make_tuple(1, 2, 3));
+}
+
+PROVE_CASE()
+{
+    auto t1 = hero::make_tuple();
+    auto t2 = hero::make_tuple();
+    PROVE_CHECK(t1 == t2);
+    PROVE_CHECK(!(t1 < t2));
+    PROVE_CHECK(!(t1 > t2));
+    PROVE_CHECK(t1 <= t2);
+    PROVE_CHECK(t1 >= t2);
+}
+
+PROVE_CASE()
+{
+    PROVE_STATIC_CHECK(hero::make_tuple() == hero::make_tuple());
+    PROVE_STATIC_CHECK(!(hero::make_tuple() < hero::make_tuple()));
+    PROVE_STATIC_CHECK(!(hero::make_tuple() > hero::make_tuple()));
+    PROVE_STATIC_CHECK(hero::make_tuple() <= hero::make_tuple());
+    PROVE_STATIC_CHECK(hero::make_tuple() >= hero::make_tuple());
+}
+
+PROVE_CASE()
+{
+    auto t1 = hero::make_tuple(1, 2, 3);
+    auto t2 = hero::make_tuple(1, 2, 4);
+    PROVE_CHECK(t1 != t2);
+    PROVE_CHECK(t1 < t2);
+    PROVE_CHECK(t2 > t1);
+}
+
+PROVE_CASE()
+{
+    PROVE_STATIC_CHECK(hero::make_tuple(1, 2, 3) != hero::make_tuple(1, 2, 4));
+    PROVE_STATIC_CHECK(hero::make_tuple(1, 2, 3) < hero::make_tuple(1, 2, 4));
+    PROVE_STATIC_CHECK(hero::make_tuple(1, 2, 4) > hero::make_tuple(1, 2, 3));
 }
 
 PROVE_CASE()
