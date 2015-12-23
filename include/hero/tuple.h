@@ -42,6 +42,8 @@ struct tuple
     FIT_INHERIT_CONSTRUCTOR(tuple, base)
     // TODO: Add implict conversions
 
+    FIT_RETURNS_CLASS(tuple)
+
     template<class IntegralConstant>
     constexpr auto operator[](IntegralConstant) const FIT_RETURNS
     (base::template get_by_key<std::integral_constant<int, IntegralConstant::value>>(*FIT_CONST_THIS))
