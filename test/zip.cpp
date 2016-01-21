@@ -59,18 +59,18 @@ PROVE_CASE()
 
 PROVE_CASE()
 {
-    // PROVE_STATIC_CHECK(
-    //     hero::fold(
-    //         hero::view::zip_with(hero::make_tuple(1, 2), hero::make_tuple(3, 4), fit::_ * fit::_), 
-    //         fit::_ + fit::_) 
-    //     == (1*3) + (2*4));
+    PROVE_STATIC_CHECK(
+        hero::fold(
+            hero::view::zip_with(hero::make_tuple(1, 2), hero::make_tuple(3, 4), fit::_ * fit::_), 
+            fit::_ + fit::_) 
+        == (1*3) + (2*4));
 }
 
 PROVE_CASE()
 {
-    // PROVE_STATIC_CHECK(
-    //     hero::fold(
-    //         hero::make_tuple(1, 2) | hero::view::zip_with(hero::make_tuple(3, 4), fit::_ * fit::_), 
-    //         fit::_ + fit::_) 
-    //     == (1*3) + (2*4));
+    PROVE_STATIC_CHECK(
+        hero::fold(
+            hero::make_tuple(1, 2) | hero::view::zip_with(hero::make_tuple(3, 4), fit::_ * fit::_), 
+            fit::_ + fit::_) 
+        == (1*3) + (2*4));
 }

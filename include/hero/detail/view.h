@@ -22,7 +22,7 @@ struct invoke_algo
     constexpr auto operator()(Sequence&& s, Pack&& p, F&& f) const FIT_RETURNS
     (
         fit::unpack(
-            fit::pack_join(fit::pack(f), p)(A())
+            fit::unpack(A())(fit::pack_join(fit::pack(f), p))
         )(fit::forward<Sequence>(s))
     )
 };
@@ -34,9 +34,9 @@ struct view : A
     struct hero_unpack_sequence
     {
         template<class F, class S>
-        constexpr static auto apply(F&& f, S&& s) FIT_RETURNS
+        constexpr static auto apply(F&& f, S&& self) FIT_RETURNS
         (
-            s(f)
+            self(f)
         );
     };
 };
