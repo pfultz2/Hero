@@ -1,6 +1,6 @@
 #include <hero/reverse_fold.h>
 #include <tick/integral_constant.h>
-#include <fit/match.h>
+#include <fit/match.hpp>
 #include "test.h"
 
 PROVE_CASE()

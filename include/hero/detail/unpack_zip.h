@@ -8,10 +8,10 @@
 #ifndef HERO_GUARD_UNPACK_ZIP_H
 #define HERO_GUARD_UNPACK_ZIP_H
 
-#include <fit/by.h>
-#include <fit/combine.h>
-#include <fit/capture.h>
-#include <fit/unpack.h>
+#include <fit/by.hpp>
+#include <fit/combine.hpp>
+#include <fit/capture.hpp>
+#include <fit/unpack.hpp>
 
 namespace hero { namespace detail {
 

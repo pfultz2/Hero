@@ -1,8 +1,8 @@
 
 #include <iostream>
-#include <fit/unpack.h>
-#include <fit/lazy.h>
-#include <fit/placeholders.h>
+#include <fit/unpack.hpp>
+#include <fit/lazy.hpp>
+#include <fit/placeholders.hpp>
 #include <hero/for_each.h>
 
 struct tuple_factory

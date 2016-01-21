@@ -9,7 +9,7 @@
 #define HERO_GUARD_ORDERED_H
 
 #include <hero/detail/always_void.h>
-#include <fit/returns.h>
+#include <fit/returns.hpp>
 #include <utility>
 
 namespace hero { namespace detail {

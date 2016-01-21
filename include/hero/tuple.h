@@ -10,12 +10,12 @@
 
 #include <hero/detail/closure.h>
 #include <hero/detail/unpack.h>
-#include <fit/by.h>
-#include <fit/placeholders.h>
-#include <fit/compress.h>
-#include <fit/function.h>
-#include <fit/construct.h>
-#include <fit/decay.h>
+#include <fit/by.hpp>
+#include <fit/placeholders.hpp>
+#include <fit/compress.hpp>
+#include <fit/function.hpp>
+#include <fit/construct.hpp>
+#include <fit/decay.hpp>
 #include <hero/detail/ordered.h>
 #include <tick/integral_constant.h>
 

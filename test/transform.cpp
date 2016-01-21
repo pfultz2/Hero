@@ -1,6 +1,6 @@
 #include <hero/transform.h>
 #include <hero/fold.h>
-#include <fit/lazy.h>
+#include <fit/lazy.hpp>
 #include "test.h"
 
 PROVE_CASE()

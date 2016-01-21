@@ -11,8 +11,8 @@
 #include <hero/detail/unpack.h>
 #include <tick/integral_constant.h>
 #include <tick/requires.h>
-#include <fit/pipable.h>
-#include <fit/function.h>
+#include <fit/pipable.hpp>
+#include <fit/function.hpp>
 
 namespace hero { namespace detail {
 

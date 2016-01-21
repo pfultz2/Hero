@@ -9,8 +9,8 @@
 #define HERO_GUARD_REVERSE_FOLD_H
 
 #include <hero/detail/algo.h>
-#include <fit/reverse_compress.h>
-#include <fit/pipable.h>
+#include <fit/reverse_compress.hpp>
+#include <fit/pipable.hpp>
 
 namespace hero {
 

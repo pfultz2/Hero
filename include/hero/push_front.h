@@ -10,7 +10,7 @@
 
 #include <hero/detail/algo.h>
 #include <hero/detail/view.h>
-#include <fit/pipable.h>
+#include <fit/pipable.hpp>
 
 namespace hero { namespace detail {
 

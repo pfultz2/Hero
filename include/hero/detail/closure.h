@@ -8,7 +8,7 @@
 #ifndef HERO_GUARD_CLOSURE_H
 #define HERO_GUARD_CLOSURE_H
 
-#include <fit/alias.h>
+#include <fit/alias.hpp>
 
 namespace hero { namespace detail {
 

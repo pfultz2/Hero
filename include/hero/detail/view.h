@@ -9,8 +9,8 @@
 #define HERO_GUARD_VIEW_H
 
 #include <hero/detail/unpack.h>
-// #include <fit/rotate.h>
-#include <fit/construct.h>
+// #include <fit/rotate.hpp>
+#include <fit/construct.hpp>
 #include <tick/requires.h>
 
 namespace hero { namespace detail {

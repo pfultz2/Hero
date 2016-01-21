@@ -10,10 +10,10 @@
 
 #include <hero/detail/algo.h>
 #include <hero/detail/view.h>
-#include <fit/rotate.h>
-#include <fit/pipable.h>
-#include <fit/combine.h>
-#include <fit/by.h>
+#include <fit/rotate.hpp>
+#include <fit/pipable.hpp>
+#include <fit/combine.hpp>
+#include <fit/by.hpp>
 
 namespace hero { namespace detail {
 

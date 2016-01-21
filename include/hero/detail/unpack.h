@@ -8,7 +8,7 @@
 #ifndef HERO_GUARD_UNPACK_H
 #define HERO_GUARD_UNPACK_H
 
-#include <fit/unpack.h>
+#include <fit/unpack.hpp>
 
 namespace fit {
 // TODO: Use REQUIRES_EXIST

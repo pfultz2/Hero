@@ -8,7 +8,7 @@
 #ifndef HERO_GUARD_VISIT_OVERLOADS_H
 #define HERO_GUARD_VISIT_OVERLOADS_H
 
-#include <fit/returns.h>
+#include <fit/returns.hpp>
 
 namespace hero {
 

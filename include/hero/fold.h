@@ -9,8 +9,8 @@
 #define HERO_GUARD_FOLD_H
 
 #include <hero/detail/algo.h>
-#include <fit/compress.h>
-#include <fit/pipable.h>
+#include <fit/compress.hpp>
+#include <fit/pipable.hpp>
 
 namespace hero {
 

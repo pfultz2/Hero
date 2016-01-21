@@ -1,7 +1,7 @@
 #include <hero/for_each.h>
 #include <hero/fold.h>
-#include <fit/lazy.h>
-#include <fit/match.h>
+#include <fit/lazy.hpp>
+#include <fit/match.hpp>
 #include <hero/size.h>
 #include <hero/empty.h>
 #include <hero/transform.h>
