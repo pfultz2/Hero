@@ -36,7 +36,7 @@ struct size_f
 
 }
 
-FIT_STATIC_FUNCTION(size) = fit::pipable(detail::size_f());
+FIT_STATIC_FUNCTION(size) = fit::pipable(fit::limit_c<1>(detail::size_f()));
 
 }
 

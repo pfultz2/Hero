@@ -52,13 +52,13 @@ struct zip_a
 
 }
 
-FIT_STATIC_FUNCTION(zip_with) = fit::pipable(detail::algo<detail::zip_with_a>());
-FIT_STATIC_FUNCTION(zip) = fit::pipable(detail::algo<detail::zip_a>());
+FIT_STATIC_FUNCTION(zip_with) = fit::pipable(fit::limit_c<3>(detail::algo<detail::zip_with_a>()));
+FIT_STATIC_FUNCTION(zip) = fit::pipable(fit::limit_c<2>(detail::algo<detail::zip_a>()));
 
 namespace view {
 
-FIT_STATIC_FUNCTION(zip_with) = fit::pipable(detail::make_view<detail::zip_with_a>());
-FIT_STATIC_FUNCTION(zip) = fit::pipable(detail::make_view<detail::zip_a>());
+FIT_STATIC_FUNCTION(zip_with) = fit::pipable(fit::limit_c<3>(detail::make_view<detail::zip_with_a>()));
+FIT_STATIC_FUNCTION(zip) = fit::pipable(fit::limit_c<2>(detail::make_view<detail::zip_a>()));
 
 }
 

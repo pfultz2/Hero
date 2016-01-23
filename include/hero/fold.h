@@ -14,7 +14,7 @@
 
 namespace hero {
 
-FIT_STATIC_FUNCTION(fold) = fit::pipable(detail::make_algo_action(fit::compress));
+FIT_STATIC_FUNCTION(fold) = fit::pipable(fit::limit_c<3>(detail::make_algo_action(fit::compress)));
 
 }
 

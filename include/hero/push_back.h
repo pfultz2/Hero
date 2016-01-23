@@ -26,11 +26,11 @@ struct push_back_a
 
 }
 
-FIT_STATIC_FUNCTION(push_back) = fit::pipable(detail::algo_copy<detail::push_back_a>());
+FIT_STATIC_FUNCTION(push_back) = fit::pipable(fit::limit_c<2>(detail::algo_copy<detail::push_back_a>()));
 
 namespace view {
 
-FIT_STATIC_FUNCTION(push_back) = fit::pipable(detail::make_view<detail::push_back_a>());
+FIT_STATIC_FUNCTION(push_back) = fit::pipable(fit::limit_c<2>(detail::make_view<detail::push_back_a>()));
 
 }
 

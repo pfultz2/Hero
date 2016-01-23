@@ -26,11 +26,11 @@ struct transform_a
 
 }
 
-FIT_STATIC_FUNCTION(transform) = fit::pipable(detail::algo<detail::transform_a>());
+FIT_STATIC_FUNCTION(transform) = fit::pipable(fit::limit_c<2>(detail::algo<detail::transform_a>()));
 
 namespace view {
 
-FIT_STATIC_FUNCTION(transform) = fit::pipable(detail::make_view<detail::transform_a>());
+FIT_STATIC_FUNCTION(transform) = fit::pipable(fit::limit_c<2>(detail::make_view<detail::transform_a>()));
 
 }
 

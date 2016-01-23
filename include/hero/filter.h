@@ -24,7 +24,6 @@ struct filter_projection
     constexpr static decltype(std::declval<Predicate>()(std::declval<T>())) 
     predicate(T&&)
     {
-        typedef decltype(std::declval<Predicate>()(std::declval<T>())) p;
         return {};
     }
     template<class T>
@@ -48,11 +47,11 @@ struct filter_a
 
 }
 
-FIT_STATIC_FUNCTION(filter) = fit::pipable(detail::algo<detail::filter_a>());
+FIT_STATIC_FUNCTION(filter) = fit::pipable(fit::limit_c<2>(detail::algo<detail::filter_a>()));
 
 namespace view {
 
-FIT_STATIC_FUNCTION(filter) = fit::pipable(detail::make_view<detail::filter_a>());
+FIT_STATIC_FUNCTION(filter) = fit::pipable(fit::limit_c<2>(detail::make_view<detail::filter_a>()));
 
 }
 

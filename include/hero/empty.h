@@ -39,7 +39,7 @@ struct empty_f
 
 }
 
-FIT_STATIC_FUNCTION(empty) = fit::pipable(detail::empty_f());
+FIT_STATIC_FUNCTION(empty) = fit::pipable(fit::limit_c<1>(detail::empty_f()));
 
 }
 
