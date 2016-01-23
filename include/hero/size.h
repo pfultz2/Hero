@@ -28,7 +28,10 @@ struct get_size
 struct size_f
 {
     template<class Sequence, TICK_REQUIRES(fit::is_unpackable<Sequence>::value)>
-    constexpr auto operator()(Sequence&& s) const FIT_RETURNS(fit::unpack(get_size())(s))
+    constexpr auto operator()(Sequence&& s) const -> decltype(fit::unpack(get_size())(s))
+    {
+        return {};
+    }
 };
 
 }
