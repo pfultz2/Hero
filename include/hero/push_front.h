@@ -19,7 +19,7 @@ struct push_front_a
     template<class Filler, class T>
     constexpr auto operator()(Filler&& f, T&& x) const FIT_RETURNS
     (
-        fit::capture_decay(fit::forward<T>(x))(f)
+        fit::capture(fit::forward<T>(x))(f)
     )
 };
 

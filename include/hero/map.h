@@ -56,7 +56,7 @@ struct map<pair<Keys, Values>...>
     }
 };
 
-FIT_STATIC_FUNCTION(make_map) = fit::by(fit::decay, fit::construct<map>());
+FIT_STATIC_FUNCTION(make_map) = fit::construct<map>();
 
 FIT_STATIC_FUNCTION(as_map) = fit::unpack(make_map);
 

@@ -40,7 +40,7 @@ struct yield_if_f
     constexpr auto operator()(C c) const FIT_RETURNS
     (
         fit::conditional(
-            fit::if_(c)(fit::pack_decay),
+            fit::if_(c)(fit::pack),
             fit::always(fit::pack())
         )
     )
@@ -50,7 +50,7 @@ struct yield_if_f
 
 FIT_STATIC_FUNCTION(for_each) = fit::pipable(fit::limit_c<2>(detail::algo_action<detail::for_each_a>()));
 
-FIT_STATIC_FUNCTION(yield) = fit::pack_decay;
+FIT_STATIC_FUNCTION(yield) = fit::pack;
 FIT_STATIC_FUNCTION(yield_if) = detail::yield_if_f();
 
 namespace view {

@@ -75,7 +75,8 @@ struct tuple
     }
 };
 
-FIT_STATIC_FUNCTION(make_tuple) = fit::by(fit::decay, fit::construct<tuple>());
+FIT_STATIC_FUNCTION(make_tuple) = fit::construct<tuple>();
+FIT_STATIC_FUNCTION(forward_as_tuple) = fit::construct_forward<tuple>();
 
 FIT_STATIC_FUNCTION(as_tuple) = fit::unpack(make_tuple);
 
